@@ -29,12 +29,15 @@ public class FileController {
         return new ResponseEntity<>(appResponse, HttpStatus.OK);
     }
 
+    /**
+    * TODO :  Make this work and test this*/
+
     @PostMapping(value = "/decrypt", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<AppResponse<FileDecodeResponse>> decodeFile(@RequestParam(required = true, value = "file") MultipartFile file, @RequestBody FileDecodeRequest fileEncodeRequest){
+    public ResponseEntity<AppResponse<FileDecodeResponse>> decodeFile(@RequestParam(required = true, value = "file") MultipartFile file, @RequestParam String userId){
 
         AppResponse<FileDecodeResponse> appResponse = AppResponse.
                 <FileDecodeResponse>builder()
-                .data(fileService.decryptFile(fileEncodeRequest, file))
+                .data(fileService.decryptFile(userId, file))
                 .build();
 
         return new ResponseEntity<>(appResponse, HttpStatus.OK);
