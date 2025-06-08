@@ -58,12 +58,12 @@ public class FileService {
         }
     }
 
-    public FileDecodeResponse decryptFile(FileDecodeRequest request, MultipartFile file) {
-        if (request.getUserId() == null || request.getUserId().isBlank()) {
+    public FileDecodeResponse decryptFile(String userId, MultipartFile file) {
+        if (userId == null || userId.isBlank()) {
             throw new IllegalArgumentException("Invalid user ID");
         }
 
-        Keys keysOpt = keysRepository.findByUserId(request.getUserId());
+        Keys keysOpt = keysRepository.findByUserId(userId);
         if (keysOpt == null) {
             throw new IllegalArgumentException("User not present");
         }
