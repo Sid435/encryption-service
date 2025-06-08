@@ -1,0 +1,67 @@
+server:
+  servlet:
+    context-path: /api/encrypto
+
+  shutdown: graceful
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: siddharthkumar435@gmail.com
+    password: qwjpriavwjoaajhe
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  application:
+    name: encryption-service
+
+  datasource:
+    username: root
+    password: root@123
+    url: jdbc:mysql://127.0.0.1:3306/encryption_service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+encryption:
+  aes:
+    key: classpath:keys/aes-key.key
+  initialization: "19,11,31,-69,-52,-24,-30,109,-91,41,117,66"
+
+
+management:
+  endpoint:
+    health:
+      show-details: never
+      show-components: always
+
+  health:
+    discoveryComposite:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+
+
+application:
+  security:
+    jwt:
+      access-token:
+        private-key: classpath:keys/access-private.pem
+        public-key: classpath:keys/access-public.pem
+        expiration: 900000 # in milliseconds (e.g., 15 minutes)
+      refresh-token:
+        private-key: classpath:keys/refresh-private.pem
+        public-key: classpath:keys/refresh-public.pem
+        expiration: 604800000 # in milliseconds (e.g., 7 days)

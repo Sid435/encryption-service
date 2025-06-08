@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Encrypted File from Encrypto</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f5f6fa; padding: 20px; color: #333;">
+<div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 30px;">
+    <h2 style="color: #2c3e50;">🔐 Your Encrypted File is Ready</h2>
+
+    <p>Hi there,</p>
+
+    <p>You have received an encrypted file securely via the <strong>Encrypto App</strong>.</p>
+
+    <p><strong>📎 Attached File:</strong> <span th:text="${encryptedFileName}"></span></p>
+
+    <p>To view this file, please follow these steps:</p>
+    <ol>
+        <li>Download and install the <strong>Encrypto App</strong> on your device.</li>
+        <li>Open the app and log in with your registered credentials.</li>
+        <li>Upload or open the attached file within the app.</li>
+    </ol>
+
+    <p style="color: #e74c3c;"><strong>Note:</strong> This file is securely encrypted and cannot be opened with standard PDF viewers.</p>
+
+    <p>If you have any trouble opening the file, please contact our support team at <a href="mailto:support@encrypto.com">support@encrypto.com</a>.</p>
+
+    <p>Thank you for using <strong>Encrypto</strong> to keep your files secure.</p>
+
+    <hr style="margin: 30px 0;">
+    <p style="font-size: 12px; color: #999;">This is an automated message. Please do not reply.</p>
+</div>
+</body>
+</html>
